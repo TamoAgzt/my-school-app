@@ -1,18 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { DeckComponent } from './deck/deck.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeroesComponent,
+    PageNotFoundComponent,
+    DeckComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    BrowserModule,
+    RouterModule.forRoot([
+      { path: 'app-heroes', component: HeroesComponent },
+      { path: 'app-deck', component: DeckComponent },
+      { path: '', redirectTo: '/app-heroes', pathMatch: 'full' },
+      { path: '**', component: PageNotFoundComponent },
+    ]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

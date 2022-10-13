@@ -1,0 +1,79 @@
+<h2>Heroes</h2>
+
+<div class="card-container">
+  <ul class="heroes-list">
+    <li *ngFor="let hero of heroes">
+      <!-- [class.selected] = "hero === selectedHero"
+      (click)="onSelect(hero)"
+      <span class="badge">{{hero.id}}</span>{{hero.name}}
+      -->
+      <a
+        [class.selected]="hero === selectedHero"
+        type="button"
+        (click)="onSelect(hero)"
+      >
+        <span class="badge">{{ hero.id }}</span
+        ><span class="card-name"
+          ><b>{{ hero.name }}</b></span
+        >
+        <img src="{{ hero.imagePath }}" />
+        <div class="stats">
+          <span class="health">{{ hero.health }}</span>
+          <span class="power">{{ hero.power }}</span>
+          <span class="resistance">{{ hero.resistance }}</span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<div class="card-info-container">
+  <div *ngIf="selectedHero">
+    <div class="info">
+      <h2>{{ selectedHero.name | uppercase }}'s Details</h2>
+      <div><span>Id: </span>{{ selectedHero.id }}</div>
+
+      <label for="hero-name">Hero name: </label>
+      <!--<input [{ngModel}]="hero.name" placeholder="name">-->
+      <input
+        id="hero-name"
+        [(ngModel)]="selectedHero.name"
+        placeholder="name"
+      />
+      <br />
+      <table>
+        <tr>
+          <th>General</th>
+          <th>Stats</th>
+        </tr>
+        <tr>
+          <td>
+            <span><b>Race/Class: </b>{{ selectedHero.race }}</span>
+            <br />
+            <span><b>Info: </b>{{ selectedHero.background }}</span>
+          </td>
+          <td>
+            <span><b>Health: </b>{{ selectedHero.health }}</span>
+            <br />
+            <span><b>Power: </b>{{ selectedHero.power }}</span>
+            <br />
+            <span><b>Resistance: </b>{{ selectedHero.resistance }}</span>
+            <br />
+            {{ selectedHero.inDeck }}
+          </td>
+        </tr>
+      </table>
+    </div>
+    <a
+      [class.selected]="selectedHero === deckedHero"
+      type="button"
+      (click)="addSelected(selectedHero)"
+      id="addHeroButton"
+      >Add to deck
+    </a>
+  </div>
+</div>
+
+<div *ngIf="deckedHero">Added {{ deckedHero.name }}</div>
+
+<!-- <app-deck *ngFor="let hero of heroes" [addedHero]="addedHero"> </app-deck> -->
