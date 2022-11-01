@@ -1,5 +1,8 @@
 <div class="content" role="main">
-  <h1>{{ title }}</h1>
+  <span
+    ><h1>{{ title }}</h1>
+  </span>
+
   <nav>
     <a
       class="button"
@@ -17,17 +20,15 @@
     >
       Deck
     </a>
-    <!-- <a
+    <a
       class="button"
-      routerLink="/app-..."
+      routerLink="/app-battle"
       routerLinkActive="activebutton"
       ariaCurrentWhenActive="page"
     >
-      name
-    </a> -->
+      Battleground
+    </a>
   </nav>
 </div>
 
-<router-outlet>
-  <!-- <app-heroes></app-heroes> -->
-</router-outlet>
+<router-outlet> </router-outlet>

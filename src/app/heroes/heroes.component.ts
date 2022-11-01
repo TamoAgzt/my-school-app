@@ -26,4 +26,8 @@ export class HeroesComponent implements OnInit {
     this.deckedHero = selectedHero;
     this.deckedHero.inDeck = true;
   }
+
+  trackHero(hero: Hero) {
+    return hero ? hero.inDeck : true;
+  }
 }

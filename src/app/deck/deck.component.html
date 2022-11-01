@@ -1,22 +1,25 @@
-<h1>Deck is active!</h1>
-
 <div class="card-container">
   <ul class="heroes-list">
     <li *ngFor="let hero of heroes">
-      <div *ngIf="hero.inDeck == true">
-        <!-- [class.selected] = "hero === selectedHero"
-      (click)="onSelect(hero)"
-      <span class="badge">{{hero.id}}</span>{{hero.name}}
-      -->
-        <span class="badge">{{ hero.id }}</span
-        ><span class="card-name"
-          ><b>{{ hero.name }}</b></span
-        >
-        <img src="{{ hero.imagePath }}" />
-        <div class="stats">
-          <span class="health">{{ hero.health }}</span>
-          <span class="power">{{ hero.power }}</span>
-          <span class="resistance">{{ hero.resistance }}</span>
+      <div [ngSwitch]="hero.inDeck">
+        <div *ngSwitchCase="true" class="switchCase">
+          <span class="badge">{{ hero.id }}</span
+          ><span class="card-name"
+            ><b>{{ hero.name }}</b></span
+          >
+          <img src="{{ hero.imagePath }}" />
+          <div class="stats">
+            <span class="health">{{ hero.health }}</span>
+            <span class="power">{{ hero.power }}</span>
+            <span class="resistance">{{ hero.resistance }}</span>
+          </div>
+        </div>
+        <div *ngSwitchCase="false" class="dontShow">
+          <!-- <script>
+            $("li").parent().css("background-color", "magenta");
+            $(li).css("background-color", "magenta");
+            li.setAttribute("style", "background-color:magenta;");
+          </script> -->
         </div>
       </div>
     </li>

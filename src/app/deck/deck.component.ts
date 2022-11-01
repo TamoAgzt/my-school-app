@@ -1,3 +1,5 @@
+import { style } from '@angular/animations';
+import { NgStyle } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../heroes/hero';
 import { Heroes } from '../heroes/heroes';
@@ -10,7 +12,6 @@ import { Heroes } from '../heroes/heroes';
 export class DeckComponent implements OnInit {
   heroes = Heroes;
   selectedHero?: Hero;
-
   constructor() {}
 
   ngOnInit(): void {}

@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { DeckComponent } from './deck/deck.component';
+import { BattleComponent } from './battle/battle.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { DeckComponent } from './deck/deck.component';
     HeroesComponent,
     PageNotFoundComponent,
     DeckComponent,
+    BattleComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +27,7 @@ import { DeckComponent } from './deck/deck.component';
     RouterModule.forRoot([
       { path: 'app-heroes', component: HeroesComponent },
       { path: 'app-deck', component: DeckComponent },
+      { path: 'app-battle', component: BattleComponent },
       { path: '', redirectTo: '/app-heroes', pathMatch: 'full' },
       { path: '**', component: PageNotFoundComponent },
     ]),
